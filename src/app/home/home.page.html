@@ -14,9 +14,21 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-
-    <strong>To redirect to the Assignment / Activity 1, change the "home" in the url into "assignment1"</strong>
+    <p>
+      This is the First Page (Home Page) <br>
+      1. By clicking "Go By Link" will always return blank but link has to be the same route as "Go By Event" button. <br>
+      2. By clicking "Go By Event" without clicking the "Authentication" button should not allow it to navigate to the 2nd page. <br>
+      3. By clicking "Authorization" will allow the "Go By event" button to navigate to the 2nd page. <br>
+      4. Each Page has a lifecycle events that will print out its corresponding action on developer tools: <br>
+      Click F12 > Console Tab for reference (look at right side)
+    </p>
+    <!-- <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button href = "my-custom-page/">Navigate to the Custom Page</ion-button> -->
+    <br>
+    <ion-button href = "another/">go by link</ion-button>
+    <br>
+    <ion-button (click) = "goToPage2()"> go by event</ion-button>
+    <br>
+    <ion-button (click) = "goWithAuthenticated()">authentication</ion-button>
   </div>
 </ion-content>
