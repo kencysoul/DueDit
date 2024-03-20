@@ -1,0 +1,7 @@
+{
+  "name": "DueDit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
