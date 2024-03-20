@@ -21,8 +21,7 @@ export class AnotherPage implements OnInit {
   }
   goWithAuthenticated(){
     this.authenticationService.authenticated = true;
-    console.log("Authenticated");
-    alert("You are now Authenticated");
+   
   }
   
   ngOnInit() {
