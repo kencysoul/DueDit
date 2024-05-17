@@ -7,6 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
+import { initializeApp } from 'firebase/app';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,4 +21,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  app = initializeApp(environment.firebaseConfig);
+}

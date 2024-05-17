@@ -10,4 +10,22 @@
       <ion-title size="large">signup</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="input">
+    <ion-card>
+      <ion-card-content>
+        <ion-input
+        [(ngModel)]="email" label="EMAIL" type="email" label-placement="floating">
+        </ion-input>
+        <ion-input
+        [(ngModel)]="password" label="PASSWORD" type="password" labelPlacement="floating">
+        </ion-input>
+        <ion-input
+        [(ngModel)]="retypePassword" label="CONFIRM PASSWORD" type="password" label-placement="floating">
+        </ion-input>
+      </ion-card-content>
+    </ion-card>
+    <ion-button (click)="signup()">SIGN UP</ion-button>
+  </div>
+
 </ion-content>
