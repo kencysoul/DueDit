@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plans',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansPage implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router, private authService : AuthService) { }
 
   ngOnInit() {
   }
 
+
+  addPlan(){
+    
+  }
+
+  logOut() { //back to login
+    this.authService.setAuthentication(false);
+    this.router.navigate(['login']);
+  }
 }

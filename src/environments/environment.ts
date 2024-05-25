@@ -11,7 +11,8 @@ export const environment = {
     storageBucket: "duedit-project.appspot.com",
     messagingSenderId: "357255820927",
     appId: "1:357255820927:web:301a999c3c438713b2f14a"
-  }
+  },
+  accessCode: ""
 };
 
 /*

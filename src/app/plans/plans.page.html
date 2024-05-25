@@ -1,8 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>plans</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button (click)="logOut()">LOGOUT</ion-button>
+  </ion-content>
+</ion-menu>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -11,3 +16,44 @@
     </ion-toolbar>
   </ion-header>
 </ion-content>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Plans</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-searchbar show-clear-button="focus" placeholder="Search..."></ion-searchbar>
+
+    <!-- <div *ngIf = "hasPlan">
+
+      <ion-card>
+        <ion-card-header></ion-card-header>
+      </ion-card>
+
+    </div> -->
+
+    <ion-card style="text-align: center;" (click)="addPlan()">
+      <ion-icon name="add" class="plus-icon"></ion-icon>
+    </ion-card>
+
+  <!-- <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="home"></ion-icon>
+        Home
+      </ion-tab-button>
+      <ion-tab-button tab="plans">
+      <ion-icon name="plans"></ion-icon>
+        Plans
+      </ion-tab-button>
+      <ion-tab-button tab="search">
+        <ion-icon name="search"></ion-icon>
+        Search
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs> -->

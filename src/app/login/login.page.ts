@@ -27,10 +27,23 @@ export class LoginPage implements OnInit {
         // signed in
         console.log(userCredential);
         const user = userCredential.user;
+        
+        // if () {
+        //   this.authenticationService.setAuthentication(true);
+        //   this.authenticationService.authenticate = true;
+        //   this.presentAlert('Success', 'Welcome Admin ' + user.displayName);
+        //   this.router.navigate(['admin']); // Redirect to admin dashboard
+        // } else {
+        //   this.authenticationService.setAuthentication(true);
+        //   this.authenticationService.authenticate = true;
+        //   this.presentAlert('Success', 'Welcome ' + user.displayName);
+        //   this.router.navigate(['dashboard']); // Redirect to regular user dashboard
+        // }
+
         this.authenticationService.setAuthentication(true);
         this.authenticationService.authenticate = true;
         this.presentAlert('Success', 'Welcome ' + user.displayName); //displays user name
-        this.router.navigate(['home']);
+        this.router.navigate(['dashboard']);
         console.log(this.authenticationService.authenticate);
       })
       .catch((error) => { //if has error, this will run

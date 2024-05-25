@@ -1,20 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button (click)="logOut()">LOGOUT</ion-button>
+  </ion-content>
+</ion-menu>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">home</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="card">
+      <ion-item lines="none">
+        <ion-label style="font-weight: 800;font-size: 3em;">
+          Today
+          <p style="font-weight: 400;color: #433465 ;">{{today | date:'fullDate'}}</p>
+        </ion-label>
+      </ion-item>
+      
+    </div>
+<!-- 
+    <ion-button (click)="switch()">Switch</ion-button> -->
+  
+    <div *ngIf = "noPlan">
+    <ion-card>
+      <ion-card-content>
+        <br><br><br>
+        <h1>No plans set</h1>
+        <br><br><br>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf = "noPlan == false">
+    <ion-card>
+      <ion-card-subtitle>Ongoing trip</ion-card-subtitle>
+      <ion-card-header>Next location:</ion-card-header>
+      <ion-card-content>nextDestination</ion-card-content>
+    </ion-card>
+  </div>
+    
+  </ion-content>
+</div>

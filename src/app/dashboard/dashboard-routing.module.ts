@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardPage,
-    canActivate : [AuthService],
+    // canActivate : [AuthService],
     children: [
       {
         path: 'home',

@@ -9,6 +9,9 @@ import { initializeApp } from 'firebase/app';
   providedIn: 'root'
 })
 export class AuthService {
+  static setAuthentication(arg0: boolean) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private router: Router) { this.fetch(); }
   authenticate = false;
@@ -21,6 +24,8 @@ export class AuthService {
       localStorage.setItem('isLoggedIn', 'false');
     }
   }
+
+  
 
   canActivate() {
     if (localStorage.getItem('isLoggedIn') == 'true') {
