@@ -8,6 +8,7 @@ import { AdminPageRoutingModule } from './admin-routing.module';
 
 import { AdminPage } from './admin.page';
 import { AddModalComponent } from '../add-modal/add-modal.component';
+import { UpdateModalComponent } from '../update-modal/update-modal.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { AddModalComponent } from '../add-modal/add-modal.component';
     IonicModule,
     AdminPageRoutingModule
   ],
-  declarations: [AdminPage, AddModalComponent]
+  declarations: [AdminPage, AddModalComponent, UpdateModalComponent]
 })
 export class AdminPageModule {}

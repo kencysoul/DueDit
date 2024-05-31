@@ -5,6 +5,7 @@ import { AlertController, IonModal, ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { AddModalComponent } from '../add-modal/add-modal.component';
 import { Router } from '@angular/router';
+import { UpdateModalComponent } from '../update-modal/update-modal.component';
 
 @Component({
   selector: 'app-admin',
@@ -47,6 +48,22 @@ export class AdminPage implements OnInit {
         this.citylist = await this.adminService.getCity();
       }
     });
+    return await modal.present();
+  }
+
+  async toggleModall(city: cities) {
+    const modal = await this.modalController.create({
+      component: UpdateModalComponent,
+      componentProps: { city }, // Pass the selected city data
+    });
+
+    modal.onDidDismiss().then(async (data) => {
+      if (data.role === 'confirm') {
+        // Update city list if data was confirmed
+        this.citylist = await this.adminService.getCity();
+      }
+    });
+
     return await modal.present();
   }
 
@@ -117,15 +134,10 @@ export class AdminPage implements OnInit {
     console.log(`Dismissed with role: ${ev.detail.role}`);
   }
 
-  edit(City: cities) {
-    this.Cities = City;
-    console.log(City);
-    this.toggleModal()
-  }
-
   synch(City: cities) {
     this.Cities.name = City.name;
     console.log(City);
+    this.toggleModal();
   }
 
   logout() {

@@ -1,6 +1,5 @@
 <ion-modal
   #updateModal
-  trigger="open-modal-1"
   (willDismiss)="onWillDismiss($event)"
 >
   <ng-template>
@@ -11,7 +10,7 @@
         </ion-buttons>
         <ion-title>UPDATE CITY</ion-title>
         <ion-buttons slot="end">
-          <ion-button [strong]="true">Confirm</ion-button>
+          <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
