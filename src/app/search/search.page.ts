@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RegionService } from '../region.service';
-import { region } from '../model/region.model';
+import { cities, icities } from '../admin/model';
+import { AdminService } from '../admin/admin.service';
 
 @Component({
   selector: 'app-search',
@@ -11,24 +12,31 @@ import { region } from '../model/region.model';
 })
 export class SearchPage implements OnInit {
   user: any;
+  Cities: cities = new cities();
+  citylist: icities[] = [];
+  isLoading = false;
+  LoadingText: String = 'Loading...';
 
-  regions : region[] = [];
-  
-  constructor(private router : Router, private authService : AuthService,
-    private regionService : RegionService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private adminService: AdminService
+  ) {}
 
   ngOnInit(): void {
     this.loadData();
   }
 
   async loadData() {
-    await this.regionService.fetchData().subscribe((responses) => {
-      this.regions = responses;
-      console.log(responses);
-    });
+    this.isLoading = true;
+    setTimeout(async () => {
+      this.citylist = await this.adminService.getCity();
+      this.isLoading = false;
+    }, 2000);
   }
 
-  logOut() { //back to login
+  logOut() {
+    //back to login
     this.authService.setAuthentication(false);
     this.router.navigate(['login']);
   }

@@ -29,13 +29,11 @@
   <ion-content class="ion-padding">
     <ion-searchbar show-clear-button="focus" placeholder="Search..."></ion-searchbar>
 
-    <div *ngFor="let item of regions">
-        <ion-item>
-          <ion-label>
-            {{item.City}}
-          </ion-label>
-        </ion-item>
-    </div>
+    <div class="cities" *ngFor="let city of citylist">
+    <ion-item>
+      {{ city.name }}
+    </ion-item>
+  </div>
   </ion-content>
   
 </div>

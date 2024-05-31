@@ -4,6 +4,7 @@ import { cities, icities } from './model';
 import { AlertController, IonModal, ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { AddModalComponent } from '../add-modal/add-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -19,7 +20,8 @@ export class AdminPage implements OnInit {
   constructor(
     private adminService: AdminService,
     private alertController: AlertController,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private route: Router
   ) {}
 
   ngOnInit() {
@@ -118,10 +120,16 @@ export class AdminPage implements OnInit {
   edit(City: cities) {
     this.Cities = City;
     console.log(City);
+    this.toggleModal()
   }
 
   synch(City: cities) {
     this.Cities.name = City.name;
     console.log(City);
+  }
+
+  logout() {
+    this.route.navigate(['login']);
+    localStorage.removeItem('user');
   }
 }
