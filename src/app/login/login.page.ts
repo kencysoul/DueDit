@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
         console.log(userCredential);
         const user = userCredential.user;
         
-        if ((user.uid == environment.accessCode)) {
+        if (user.uid == environment.accessCode) {
           this.authenticationService.setAuthentication(true);
           this.authenticationService.authenticate = true;
           this.presentAlert('Success', 'Welcome Admin ' + user.displayName);
@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
           this.authenticationService.setAuthentication(true);
           this.authenticationService.authenticate = true;
           this.presentAlert('Success', 'Welcome ' + user.displayName);
-          this.router.navigate(['dashboard']); // Redirect to regular user dashboard
+          this.router.navigate(['dashboard/home']); // Redirect to regular user dashboard
         }
 
         // this.authenticationService.setAuthentication(true);
